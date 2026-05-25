@@ -24,14 +24,12 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
     /**
      * Common instance for true {@code BooleanResult}.
      */
-    private static final BooleanResult<?> RESULT_TRUE =
-            new BooleanResult<>(true, null);
+    private static final BooleanResult<?> RESULT_TRUE = new BooleanResult<>(true, null);
 
     /**
      * Common instance for false {@code BooleanResult}.
      */
-    private static final BooleanResult<?> RESULT_FALSE =
-            new BooleanResult<>(false, null);
+    private static final BooleanResult<?> RESULT_FALSE = new BooleanResult<>(false, null);
 
     private BooleanResult(Boolean value, E error) {
         super(value, error, BooleanResult.class);
@@ -48,9 +46,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if given success value is {@code null}
      */
     public static <E> BooleanResult<E> success(boolean value) {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>)(value ? RESULT_TRUE : RESULT_FALSE);
-        return res;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -62,9 +58,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * as the boolean success value.
      */
     public static <E> BooleanResult<E> successTrue() {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>)RESULT_TRUE;
-        return res;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -76,9 +70,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * as the boolean success value.
      */
     public static <E> BooleanResult<E> successFalse() {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>)RESULT_FALSE;
-        return res;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -92,7 +84,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if given error value is {@code null}
      */
     public static <E> BooleanResult<E> error(E value) {
-        return new BooleanResult<>(null, Objects.requireNonNull(value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -112,7 +104,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * {@code null} or returns {@code null}
      */
     public <N> Result<N, E> map(Function<Boolean, ? extends N> function) {
-        return Implementations.map(function, Result::success, Result::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -133,13 +125,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public <N> OptionalResult<N, E> mapToOptional(
-            Function<Boolean, ? extends Optional<? extends N>> function) {
-        return Implementations.map(
-                function,
-                OptionalResult::success,
-                OptionalResult::error,
-                this);
+    public <N> OptionalResult<N, E> mapToOptional(Function<Boolean, ? extends Optional<? extends N>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -156,10 +143,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public BooleanResult<E> mapToBoolean(
-            Function<Boolean, Boolean> function) {
-        return Implementations.map(
-                function, BooleanResult::success, BooleanResult::error, this);
+    public BooleanResult<E> mapToBoolean(Function<Boolean, Boolean> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -178,7 +163,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * {@code null} or returns {@code null}
      */
     public <N> BooleanResult<N> mapError(Function<? super E, ? extends N> function) {
-        return Implementations.mapError(function, BooleanResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -196,12 +181,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public <N> Result<N, E> flatMap(
-            Function<Boolean, Result<? extends N, ? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        Result<N, E> res = (Result<N, E>) Implementations.flatMap(
-                function, this, Result::error);
-        return res;
+    public <N> Result<N, E> flatMap(Function<Boolean, Result<? extends N, ? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -220,12 +201,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public <N> OptionalResult<N, E> flatMapToOptionalResult(
-            Function<Boolean, OptionalResult<? extends N, ? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        OptionalResult<N, E> res = (OptionalResult<N, E>) Implementations.flatMap(
-                function, this, OptionalResult::error);
-        return res;
+    public <N> OptionalResult<N, E> flatMapToOptionalResult(Function<Boolean, OptionalResult<? extends N, ? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -241,11 +218,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public BooleanResult<E> flatMapToBooleanResult(
-            Function<Boolean, BooleanResult<? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>) Implementations.flatMap(function, this);
-        return res;
+    public BooleanResult<E> flatMapToBooleanResult(Function<Boolean, BooleanResult<? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -262,12 +236,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given mapping function is
      * {@code null} or returns {@code null}
      */
-    public VoidResult<E> flatMapToVoidResult(
-            Function<Boolean, VoidResult<? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        VoidResult<E> res = (VoidResult<E>) Implementations.flatMap(
-                function, this, VoidResult::error);
-        return res;
+    public VoidResult<E> flatMapToVoidResult(Function<Boolean, VoidResult<? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -281,9 +251,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * function, if in error state, otherwise the unaltered
      * {@code BooleanResult} in success state
      */
-    public BooleanResult<E> recover(
-            Function<E, Boolean> function) {
-        return Implementations.recover(function, BooleanResult::success, this);
+    public BooleanResult<E> recover(Function<E, Boolean> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -298,13 +267,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * in error state, otherwise the unaltered {@code BooleanResult} in success
      * state
      */
-    public BooleanResult<E> flatRecover(
-            Function<E, BooleanResult<? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>) Implementations.flatRecover(
-                val -> function.apply(error()),
-                this);
-        return res;
+    public BooleanResult<E> flatRecover(Function<E, BooleanResult<? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -316,7 +280,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given consumer is {@code null}
      */
     public BooleanResult<E> consume(Consumer<Boolean> consumer) {
-        return Implementations.consume(consumer, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -328,7 +292,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given consumer is {@code null}
      */
     public BooleanResult<E> consumeError(Consumer<? super E> errorConsumer) {
-        return Implementations.consumeError(errorConsumer, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -341,10 +305,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @return the original {@code BooleanResult} unaltered
      * @throws NullPointerException if one of the given consumers is {@code null}
      */
-    public BooleanResult<E> consumeEither(
-            Consumer<Boolean> valueConsumer,
-            Consumer<? super E> errorConsumer) {
-        return Implementations.consumeEither(valueConsumer, errorConsumer, this);
+    public BooleanResult<E> consumeEither(Consumer<Boolean> valueConsumer, Consumer<? super E> errorConsumer) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -362,24 +324,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if one of the given runnables or consumer is
      * {@code null}
      */
-    public BooleanResult<E> consumeEither(
-            Runnable trueRunnable,
-            Runnable falseRunnable,
-            Consumer<? super E> errorConsumer) {
-        Objects.requireNonNull(trueRunnable);
-        Objects.requireNonNull(falseRunnable);
-
-        return Implementations.consumeEither(
-                val -> {
-                    if (val) {
-                        trueRunnable.run();
-                    } else {
-                        falseRunnable.run();
-                    }
-
-                },
-                errorConsumer,
-                this);
+    public BooleanResult<E> consumeEither(Runnable trueRunnable, Runnable falseRunnable, Consumer<? super E> errorConsumer) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -399,7 +345,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}
      */
     public BooleanResult<E> flatConsume(Function<Boolean, ? extends VoidResult<? extends E>> function) {
-        return Implementations.flatConsume(function, BooleanResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -410,7 +356,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public BooleanResult<E> runIfSuccess(Runnable runnable) {
-        return Implementations.runIfSuccess(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -422,12 +368,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public BooleanResult<E> runIfTrue(Runnable runnable) {
-        Objects.requireNonNull(runnable);
-        return Implementations.runIfSuccess(
-                () -> {
-                    if (value()) runnable.run();
-                },
-                this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -439,12 +380,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public BooleanResult<E> runIfFalse(Runnable runnable) {
-        Objects.requireNonNull(runnable);
-        return Implementations.runIfSuccess(
-                () -> {
-                    if (!value()) runnable.run();
-                },
-                this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -455,7 +391,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public BooleanResult<E> runIfError(Runnable runnable) {
-        return Implementations.runIfError(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -468,7 +404,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if one of the given runnables is {@code null}
      */
     public BooleanResult<E> runEither(Runnable successRunnable, Runnable errorRunnable) {
-        return Implementations.runEither(successRunnable, errorRunnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -485,20 +421,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @return the original {@code BooleanResult} unaltered
      * @throws NullPointerException if one of the given runnables is {@code null}
      */
-    public BooleanResult<E> runEither(Runnable trueRunnable,
-                                      Runnable falseRunnable,
-                                      Runnable errorRunnable) {
-        Objects.requireNonNull(trueRunnable);
-        Objects.requireNonNull(falseRunnable);
-        return Implementations.runEither(
-                () -> {
-                    if (value()) {
-                        trueRunnable.run();
-                    } else {
-                        falseRunnable.run();
-                    }
-                },
-                errorRunnable, this);
+    public BooleanResult<E> runEither(Runnable trueRunnable, Runnable falseRunnable, Runnable errorRunnable) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -522,7 +446,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public BooleanResult<E> runAlways(Runnable runnable) {
-        return Implementations.runAlways(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -542,7 +466,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}
      */
     public BooleanResult<E> flatRunIfSuccess(Supplier<? extends VoidResult<? extends E>> supplier) {
-        return Implementations.flatRunIfSuccess(supplier, BooleanResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -564,13 +488,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}, or the given error supplier is {@code null} or
      * returns {@code null}
      */
-    public BooleanResult<E> verify(Predicate<Boolean> predicate,
-                                   Supplier<? extends E> errorSupplier) {
-        return Implementations.verify(
-                predicate,
-                errorSupplier,
-                BooleanResult::error,
-                this);
+    public BooleanResult<E> verify(Predicate<Boolean> predicate, Supplier<? extends E> errorSupplier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -592,7 +511,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}
      */
     public BooleanResult<E> verify(Function<Boolean, ? extends VoidResult<? extends E>> function) {
-        return Implementations.flatConsume(function, BooleanResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -611,9 +530,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if one of the given functions is
      * {@code null}
      */
-    public <N> N fold(Function<Boolean, ? extends N> valueFunction,
-                      Function<? super E, ? extends N> errorFunction) {
-        return Implementations.fold(valueFunction, errorFunction, this);
+    public <N> N fold(Function<Boolean, ? extends N> valueFunction, Function<? super E, ? extends N> errorFunction) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -636,16 +554,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if one of the given functions or the
      * supplier is {@code null}
      */
-    public <N> N fold(Supplier<? extends N> trueSupplier,
-                      Supplier<? extends N> falseSupplier,
-                      Function<? super E, ? extends N> errorFunction) {
-        Objects.requireNonNull(trueSupplier);
-        Objects.requireNonNull(falseSupplier);
-        Objects.requireNonNull(errorFunction);
-        return Implementations.fold(
-                val -> val ? trueSupplier.get() : falseSupplier.get(),
-                errorFunction,
-                this);
+    public <N> N fold(Supplier<? extends N> trueSupplier, Supplier<? extends N> falseSupplier, Function<? super E, ? extends N> errorFunction) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -658,7 +568,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * {@code other}
      */
     public Boolean orElse(Boolean other) {
-        return Implementations.orElse(other, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -669,7 +579,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * {@code true}
      */
     public boolean orElseTrue() {
-        return Implementations.orElse(true, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -680,7 +590,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * {@code false}
      */
     public boolean orElseFalse() {
-        return Implementations.orElse(false, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -694,7 +604,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given function is {@code null}
      */
     public Boolean orElseGet(Function<? super E, Boolean> function) {
-        return Implementations.orElseGet(function, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -709,9 +619,8 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * @throws NullPointerException if the given function is {@code null} or
      * returns {@code null}
      */
-    public <X extends Throwable> Boolean orElseThrow(
-            Function<? super E, ? extends X> function) throws X {
-        return Implementations.orElseThrow(function, this);
+    public <X extends Throwable> Boolean orElseThrow(Function<? super E, ? extends X> function) throws X {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -728,9 +637,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * containing the error value from this {@code BooleanResult}
      */
     public OptionalResult<Boolean, E> toOptionalResult() {
-        return errorOpt()
-                .map(OptionalResult::<Boolean, E>error)
-                .orElseGet(() -> OptionalResult.success(value()));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -743,9 +650,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * containing the error value from this {@code BooleanResult}
      */
     public VoidResult<E> toVoidResult() {
-        return errorOpt()
-                .map(VoidResult::error)
-                .orElseGet(VoidResult::success);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -763,14 +668,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}
      */
     public static BooleanResult<Exception> handle(Callable<Boolean> callable) {
-        Objects.requireNonNull(callable);
-        final Boolean value;
-        try {
-            value = callable.call();
-        } catch (Exception e) {
-            return BooleanResult.error(e);
-        }
-        return BooleanResult.success(value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -790,10 +688,7 @@ public final class BooleanResult<E> extends BaseResult<Boolean, E> {
      * returns {@code null}, or if the given exception mapper function is
      * {@code null} or returns {@code null}
      */
-    public static <E> BooleanResult<E> handle(Callable<Boolean> callable,
-                                              Function<Exception, E> exceptionMapper) {
-        Objects.requireNonNull(exceptionMapper);
-        return handle(callable).mapError(exceptionMapper);
+    public static <E> BooleanResult<E> handle(Callable<Boolean> callable, Function<Exception, E> exceptionMapper) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
-

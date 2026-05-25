@@ -21,8 +21,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
     /**
      * Common instance for success {@code VoidResult}.
      */
-    private static final VoidResult<?> RESULT_SUCCESS =
-            new VoidResult<>(null);
+    private static final VoidResult<?> RESULT_SUCCESS = new VoidResult<>(null);
 
     private VoidResult(E error) {
         super(null, error, VoidResult.class);
@@ -35,9 +34,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @return a {@code VoidResult} in success state
      */
     public static <E> VoidResult<E> success() {
-        @SuppressWarnings("unchecked")
-        VoidResult<E> res = (VoidResult<E>)RESULT_SUCCESS;
-        return res;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -51,7 +48,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if given error value is {@code null}
      */
     public static <E> VoidResult<E> error(E value) {
-        return new VoidResult<>(Objects.requireNonNull(value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -69,7 +66,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * {@code null} or returns {@code null}
      */
     public <N> VoidResult<N> mapError(Function<? super E, ? extends N> function) {
-        return Implementations.mapError(function, VoidResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -87,11 +84,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * returns {@code null}
      */
     public <N> Result<N, E> replace(Supplier<? extends N> supplier) {
-        return Implementations.map(
-                val -> supplier.get(),
-                Result::success,
-                Result::error,
-                this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -111,13 +104,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given supplier is {@code null} or
      * returns {@code null}
      */
-    public <N> OptionalResult<N, E> replaceWithOptional(
-            Supplier<Optional<? extends N>> supplier) {
-        return Implementations.map(
-                val -> supplier.get(),
-                OptionalResult::success,
-                OptionalResult::error,
-                this);
+    public <N> OptionalResult<N, E> replaceWithOptional(Supplier<Optional<? extends N>> supplier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -136,11 +124,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * returns {@code null}
      */
     public BooleanResult<E> replaceWithBoolean(Supplier<Boolean> supplier) {
-        return Implementations.map(
-                val -> supplier.get(),
-                BooleanResult::success,
-                BooleanResult::error,
-                this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -158,14 +142,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given supplier is {@code null} or
      * returns {@code null}
      */
-    public <N> Result<N, E> flatReplace(
-            Supplier<Result<? extends N, ? extends E>> supplier) {
-        @SuppressWarnings("unchecked")
-        Result<N, E> res = (Result<N, E>) Implementations.flatMap(
-                val -> supplier.get(),
-                this,
-                Result::error);
-        return res;
+    public <N> Result<N, E> flatReplace(Supplier<Result<? extends N, ? extends E>> supplier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -183,14 +161,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given supplier is {@code null} or
      * returns {@code null}
      */
-    public <N> OptionalResult<N, E> flatReplaceToOptionalResult(
-            Supplier<OptionalResult<? extends N, ? extends E>> supplier) {
-        @SuppressWarnings("unchecked")
-        OptionalResult<N, E> res = (OptionalResult<N, E>) Implementations.flatMap(
-                val -> supplier.get(),
-                this,
-                OptionalResult::error);
-        return res;
+    public <N> OptionalResult<N, E> flatReplaceToOptionalResult(Supplier<OptionalResult<? extends N, ? extends E>> supplier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -206,14 +178,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given supplier is {@code null} or
      * returns {@code null}
      */
-    public BooleanResult<E> flatReplaceToBooleanResult(
-            Supplier<BooleanResult<? extends E>> supplier) {
-        @SuppressWarnings("unchecked")
-        BooleanResult<E> res = (BooleanResult<E>) Implementations.flatMap(
-                val -> supplier.get(),
-                this,
-                BooleanResult::error);
-        return res;
+    public BooleanResult<E> flatReplaceToBooleanResult(Supplier<BooleanResult<? extends E>> supplier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -229,10 +195,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * {@code null} or returns {@code null}
      */
     public VoidResult<E> flatReplaceToVoidResult(Supplier<VoidResult<? extends E>> supplier) {
-        @SuppressWarnings("unchecked")
-        VoidResult<E> res = (VoidResult<E>) Implementations.flatMap(
-                val -> supplier.get(), this);
-        return res;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -242,7 +205,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @return a {@code VoidResult} in success state
      */
     public VoidResult<E> recover() {
-        return isSuccess() ? this : VoidResult.success();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -255,13 +218,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @return the {@code VoidResult} returned from the mapping function, if in
      * error state, otherwise the unaltered {@code VoidResult} in success state
      */
-    public VoidResult<E> flatRecover(
-            Function<E, VoidResult<? extends E>> function) {
-        @SuppressWarnings("unchecked")
-        VoidResult<E> res = (VoidResult<E>) Implementations.flatRecover(
-                val -> function.apply(error()),
-                this);
-        return res;
+    public VoidResult<E> flatRecover(Function<E, VoidResult<? extends E>> function) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -273,7 +231,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given consumer is {@code null}
      */
     public VoidResult<E> consumeError(Consumer<? super E> errorConsumer) {
-        return Implementations.consumeError(errorConsumer, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -286,15 +244,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if either the given runnable or consumer is
      * {@code null}
      */
-    public VoidResult<E> consumeEither(
-            Runnable successRunnable,
-            Consumer<? super E> errorConsumer) {
-        Objects.requireNonNull(successRunnable);
-        return Implementations.consumeEither(
-                val -> successRunnable.run(),
-                errorConsumer,
-                this
-        );
+    public VoidResult<E> consumeEither(Runnable successRunnable, Consumer<? super E> errorConsumer) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -305,7 +256,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public VoidResult<E> runIfSuccess(Runnable runnable) {
-        return Implementations.runIfSuccess(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -316,7 +267,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public VoidResult<E> runIfError(Runnable runnable) {
-        return Implementations.runIfError(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -329,7 +280,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if one of the given runnables is {@code null}
      */
     public VoidResult<E> runEither(Runnable successRunnable, Runnable errorRunnable) {
-        return Implementations.runEither(successRunnable, errorRunnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -353,7 +304,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public VoidResult<E> runAlways(Runnable runnable) {
-        return Implementations.runAlways(runnable, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -372,7 +323,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * returns {@code null}
      */
     public VoidResult<E> flatRunIfSuccess(Supplier<? extends VoidResult<? extends E>> supplier) {
-        return Implementations.flatRunIfSuccess(supplier, VoidResult::error, this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -391,14 +342,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if either the given supplier or function is
      * {@code null}
      */
-    public <N> N fold(Supplier<? extends N> valueSupplier,
-                      Function<? super E, ? extends N> errorFunction) {
-        Objects.requireNonNull(valueSupplier);
-        Objects.requireNonNull(errorFunction);
-        return Implementations.fold(
-                val -> valueSupplier.get(),
-                errorFunction,
-                this);
+    public <N> N fold(Supplier<? extends N> valueSupplier, Function<? super E, ? extends N> errorFunction) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -412,9 +357,8 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given function is {@code null} or
      * returns {@code null}
      */
-    public <X extends Throwable> void orElseThrow(
-            Function<? super E, ? extends X> function) throws X {
-        Implementations.orElseThrow(function, this);
+    public <X extends Throwable> void orElseThrow(Function<? super E, ? extends X> function) throws X {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -431,9 +375,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * state containing the error value from this {@code VoidResult}
      */
     public <N> OptionalResult<N, E> toOptionalResult() {
-        return errorOpt()
-                .map(OptionalResult::<N, E>error)
-                .orElseGet(OptionalResult::empty);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -451,13 +393,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * @throws NullPointerException if the given runnable is {@code null}
      */
     public static VoidResult<Exception> handle(CheckedRunnable runnable) {
-        Objects.requireNonNull(runnable);
-        try {
-            runnable.run();
-            return VoidResult.success();
-        } catch (Exception e) {
-            return VoidResult.error(e);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -479,10 +415,7 @@ public final class VoidResult<E> extends BaseResult<Void, E> {
      * the given exception mapper function is {@code null} or returns
      * {@code null}
      */
-    public static <E> VoidResult<E> handle(CheckedRunnable runnable,
-                                           Function<Exception, E> exceptionMapper) {
-        Objects.requireNonNull(exceptionMapper);
-        return handle(runnable).mapError(exceptionMapper);
+    public static <E> VoidResult<E> handle(CheckedRunnable runnable, Function<Exception, E> exceptionMapper) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
-

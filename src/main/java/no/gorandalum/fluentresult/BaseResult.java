@@ -6,7 +6,9 @@ import java.util.Optional;
 abstract class BaseResult<T, E> {
 
     private final T value;
+
     private final E error;
+
     private final Class clazz;
 
     BaseResult(T value, E error, Class clazz) {
@@ -16,47 +18,37 @@ abstract class BaseResult<T, E> {
     }
 
     T value() {
-        return value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     Optional<T> valueOpt() {
-        return Optional.ofNullable(value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     E error() {
-        return error;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     Optional<E> errorOpt() {
-        return Optional.ofNullable(error);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     boolean isSuccess() {
-        return error == null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BaseResult)) return false;
-        BaseResult<?, ?> that = (BaseResult<?, ?>) o;
-        return Objects.equals(value, that.value) &&
-                Objects.equals(error, that.error) &&
-                Objects.equals(clazz, that.clazz);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, error, clazz);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return errorOpt()
-                .map(err -> String.format(
-                        "%s[%s: %s]", clazz.getSimpleName(), "Error", err))
-                .orElseGet(() -> String.format(
-                        "%s[%s: %s]", clazz.getSimpleName(), "Value", value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
-
